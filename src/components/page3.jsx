@@ -31,7 +31,6 @@ const Page3 = () => {
       const data = await response.json();
       const val = data.location.localtime.split(' ');
       const val2 = val[0].split("-");
-      console.log(data)
       document.getElementById('date').innerHTML = `${val2[1]}-${val2[2]}-${val2[0]}`;
       document.getElementById('Date').innerHTML = `${val2[1]}-${val2[2]}-${val2[0]} |`;
       if(val[1].split(':')[0] < 12){
@@ -63,7 +62,6 @@ const Page3 = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data)
       document.getElementById('newsImg').src = data.articles[0].urlToImage
       document.getElementById('newsContent').innerHTML = data.articles[0].description
       document.getElementById('title').innerHTML = data.articles[0].title
@@ -124,7 +122,6 @@ const Page3 = () => {
     const total = hourCount*3600 + minuteCount*60 + secondCount;
     setState(true);
     setTotalTime(total );
-    console.log(totalTime)
   }
 
   return (

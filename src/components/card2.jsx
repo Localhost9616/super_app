@@ -27,7 +27,6 @@ const Card2 = () => {
           set.add(Math.floor(Math.random()*20));
         }
         const array = Array.from(set);
-        console.log(data)
         for(let i=0;i<list.length;i++){
           list[i].style.background = `url(https://image.tmdb.org/t/p/original${data.results[array[i]].poster_path}) no-repeat center center / cover`
         }
