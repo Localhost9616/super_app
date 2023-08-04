@@ -26,7 +26,6 @@ const Page2 = ()=>{
         if(!selectedTag.includes(tag)){
             if(selectedTag.length < 3){
                 setselectedTag([...selectedTag, tag]);
-                // document.getElementById('err').style.display = 'none';
             }else{
                 document.getElementById('err').style.display = 'block';
                 setTimeout(() => {
@@ -53,7 +52,6 @@ const Page2 = ()=>{
             navigate('/dashboard');
         }
     }
-    // console.log(selectedTag);
     return (
         <div className="page2">
             <div className="leftSection">

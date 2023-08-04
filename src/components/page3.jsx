@@ -63,24 +63,10 @@ const Page3 = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      // const val = data.location.localtime.split(' ');
-      // const val2 = val[0].split("-");
       console.log(data)
-      // document.getElementById('date').innerHTML = `${val2[1]}-${val2[2]}-${val2[0]}`;
-      // if(val[1].split(':')[0] < 12){
-      //   if(val[1].split(':')[0] < 10){
-      //     document.getElementById('time').innerHTML = '0' + val[1] + ' AM';
-      //   }else{
-      //     document.getElementById('time').innerHTML = val[1] + ' AM';
-      //   }
-      // }else{
-      //   document.getElementById('time').innerHTML = val[1] + ' PM';
-      // }
       document.getElementById('newsImg').src = data.articles[0].urlToImage
       document.getElementById('newsContent').innerHTML = data.articles[0].description
       document.getElementById('title').innerHTML = data.articles[0].title
-      // document.getElementById('degree').innerHTML = data.current.temp_c + '&nbsp;&deg;' + "C";
-      // document.getElementById('airPressure').innerHTML = data.current.pressure_mb + " " +'mbar Pressure';
        return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -91,7 +77,6 @@ const Page3 = () => {
 
   const playSound = ()=>{
     document.getElementById('alarm').play();
-    // music.play();
   }  
 
   const Timer = () => (
@@ -142,8 +127,6 @@ const Page3 = () => {
     console.log(totalTime)
   }
 
-    
-  // fetch(url).then((res) => res.json()).then((data) => console.log(data.location.localtime.split(" ")[0]));
   return (
     <div className='page3'>
         <div className="leftDiv">

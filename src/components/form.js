@@ -6,14 +6,13 @@ const trigger = ()=>{
     let email = document.getElementById("mail");
     let phone = document.getElementById("phone");
     
-    // email.addEventListener("keyup", function (event) {
       if (email.validity.typeMismatch) {
         email.setCustomValidity("I expect an e-mail");
         email.innerHTML = "hello it a email";
       } else {
         email.setCustomValidity("");
       }
-    // });
+
     localStorage.setItem("Name", name.value);
     localStorage.setItem("username", username.value);
     localStorage.setItem("email", email.value);

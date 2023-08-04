@@ -13,7 +13,6 @@ const App = ()=>{
           <Route path="/categories" element={<Page2/>} />
           <Route path="/dashboard" element={<Page3/>} />
           <Route path="/movies" element={<Page4/>} />
-        {/* </Route> */}
       </Routes>
     </BrowserRouter>
     // <>
