@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Image15 from "../assets/images/image15.png"
 import Pressure from "../assets/images/pressure.png"
 import Wind from "../assets/images/wind.png"
@@ -138,7 +138,6 @@ const Page3 = () => {
   const calculateTime = ()=>{
     const total = hourCount*3600 + minuteCount*60 + secondCount;
     setState(true);
-    const remainingTime = total - totalTime;
     setTotalTime(total );
     console.log(totalTime)
   }

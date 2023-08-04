@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import Starter from './starter';
 import Form from './form';
 
