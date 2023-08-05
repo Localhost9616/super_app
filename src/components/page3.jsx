@@ -49,6 +49,8 @@ const Page3 = () => {
       document.getElementById('iconText').innerHTML = data.current.condition.text
       document.getElementById('degree').innerHTML = data.current.temp_c + '&nbsp;&deg;' + "C";
       document.getElementById('airPressure').innerHTML = data.current.pressure_mb + " " +'mbar Pressure';
+      document.getElementById('wind').innerHTML = data.current.wind_kph + " " +'Km/h';
+      document.getElementById('humidity').innerHTML = data.current.humidity + " " +'%';
        return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -58,13 +60,17 @@ const Page3 = () => {
   fetchWeatherData();
 
   const fetchNewsData = async () => {
-    let url = 'https://newsapi.org/v2/top-headlines?country=in&apiKey=8ef853f942f348899c9dfc6f12762333';
+    let url = 'https://newsdata.io/api/1/news?apikey=pub_2720283c5a6c8bb8511e9c7269cd4c3b5e44d&language=en&category=science&country=in';
     try {
+      let count = Math.floor(Math.random()*10);
       const response = await fetch(url);
       const data = await response.json();
-      document.getElementById('newsImg').src = data.articles[0].urlToImage
-      document.getElementById('newsContent').innerHTML = data.articles[0].description
-      document.getElementById('title').innerHTML = data.articles[0].title
+      while(data.results[count].image_url == null){
+        count++;
+      }
+      document.getElementById('newsImg').src = data.results[count].image_url
+      document.getElementById('newsContent').innerHTML = data.results[count].description
+      document.getElementById('title').innerHTML = data.results[count].title
        return data;
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -167,14 +173,14 @@ const Page3 = () => {
                           <div className="wind">
                             <img src={Wind} alt="Error"/>
                             <div>
-                              <p>3.7 Km/h</p> 
+                              <p id='wind'>3.7 Km/h</p> 
                               <p>Wind</p> 
                             </div>
                           </div>
                           <div className="humidity">
                           <img src={Humidity} alt="Error"/>
                             <div>
-                              <p>3.7 Km/h</p> 
+                              <p id='humidity'>70 %</p> 
                               <p>Humidity</p> 
                             </div>
                           </div>
