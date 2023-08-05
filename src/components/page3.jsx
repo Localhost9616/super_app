@@ -29,6 +29,8 @@ const Page3 = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
+      let iconTxt = data.current.condition.text;
+      iconTxt = (iconTxt.length > 20) ? 'Thunderstorm' : iconTxt;
       const val = data.location.localtime.split(' ');
       const val2 = val[0].split("-");
       document.getElementById('date').innerHTML = `${val2[1]}-${val2[2]}-${val2[0]}`;
@@ -46,7 +48,7 @@ const Page3 = () => {
         document.getElementById('Time').innerHTML = val[1] + ' PM';
       }
       document.getElementById('iconImg').src = data.current.condition.icon
-      document.getElementById('iconText').innerHTML = data.current.condition.text
+      document.getElementById('iconText').innerHTML = iconTxt
       document.getElementById('degree').innerHTML = data.current.temp_c + '&nbsp;&deg;' + "C";
       document.getElementById('airPressure').innerHTML = data.current.pressure_mb + " " +'mbar Pressure';
       document.getElementById('wind').innerHTML = data.current.wind_kph + " " +'Km/h';
@@ -63,12 +65,18 @@ const Page3 = () => {
     let url = 'https://newsdata.io/api/1/news?apikey=pub_2720283c5a6c8bb8511e9c7269cd4c3b5e44d&language=en&category=science&country=in';
     try {
       let count = Math.floor(Math.random()*10);
+      let newscount = 1;
       const response = await fetch(url);
       const data = await response.json();
-      while(data.results[count].image_url == null){
-        count++;
+      let image = data.results[count].image_url;
+      while(image === null){
+        count = (count < 9) ? count++ : count; 
+        newscount++;
+        if(newscount === 11){
+          image = 'https://source.unsplash.com/random/900%C3%97700/?science&technology';
+        }
       }
-      document.getElementById('newsImg').src = data.results[count].image_url
+      document.getElementById('newsImg').src = (data.results[count].image_url) || image;
       document.getElementById('newsContent').innerHTML = data.results[count].description
       document.getElementById('title').innerHTML = data.results[count].title
        return data;

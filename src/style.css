@@ -519,6 +519,7 @@
     position: absolute;
     color: white;
     top: 40%;
+    width: 100%;
 }
 .date_Time{
     width: 50%;
