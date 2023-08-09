@@ -92,6 +92,7 @@
     text-align: center;
     margin: 5px;
     cursor: pointer;
+    border: none;
 }
 .btn:hover{
     background-color: #53d555;
@@ -168,6 +169,7 @@
     padding-right: 15px;
     font-size: medium;
     padding-top: 3px;
+    border: none;
 }
 .span{
     color: #72DB73;
@@ -493,6 +495,7 @@
     margin-top: 2%;
     background-color: #FF6A6A;
     color: white;
+    border: none;
 }
 .moveDownBtn > p, .moveUpBtn > p{
     cursor: pointer;
